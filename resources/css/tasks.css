@@ -1,0 +1,76 @@
+.task-container {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header h1 {
+    font-size: large;
+    font-weight: 600;
+}
+
+.task-card {
+    background: white;
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.status {
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+/* create task page */
+.task-manipulation-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-width: 90vw;
+    height: stretch;
+}
+
+.form-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.back {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.error {
+    color: red;
+}

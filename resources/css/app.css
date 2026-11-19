@@ -1,0 +1,146 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(135deg, #ffffff, #222);
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.main-container {
+    min-width: 98vw;
+    min-height: 84vh;
+    margin-top: 100px;
+}
+
+.button {
+    display: inline-block;
+    margin: 2px;
+    padding: 2px 8px;
+    background: linear-gradient(45deg, #fff, #222);
+    color: white;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: #000;
+    font-style: italic;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #fff, #2563eb);
+    color: white;
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #fff, #eb2525);
+    color: white;
+}
+
+.btn-warning {
+    background: linear-gradient(45deg, #fff, #ebac25);
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    background: linear-gradient(270deg, #ffffff, #222);
+    border-bottom: 1px solid #ddd;
+    margin: 8px;
+    border-radius: 106px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 0;
+    width: 96%;
+}
+
+.navbar-brand a {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.navbar-links a {
+    color: #333;
+    font-weight: 600;
+}
+
+.navbar-links a:hover {
+    color: #909090;
+    font-style: italic;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 16px 40px;
+    background: linear-gradient(270deg, #ffffff, #222);
+    border-bottom: 1px solid #ddd;
+    margin-top: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+    width: 100%;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+    height: stretch;
+    /* color: white; */
+}
+
+.footer-links a {
+    color: #fff;
+    font-weight: 600;
+}
+
+.footer-links a:hover {
+    font-weight: 500;
+    font-style: oblique;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    /* Required for Safari/Chrome compatibility */
+    background-clip: text;
+    color: transparent;
+    width: fit-content;
+}
