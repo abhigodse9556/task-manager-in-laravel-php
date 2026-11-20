@@ -12,6 +12,13 @@
         @else
         <x-button class="button">Sign In</x-button>
         @endif
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <x-button type="submit">
+                Logout
+            </x-button>
+        </form>
     </div>
 
 </nav>

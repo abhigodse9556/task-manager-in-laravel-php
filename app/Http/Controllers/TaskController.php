@@ -25,7 +25,7 @@ class TaskController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|min:3|max:255',
-            'status' => 'required|in:Pending,In Progress, Completed',
+            'status' => 'required|in:Pending,In Progress,Completed',
         ]);
 
         Task::create($validated);
@@ -44,7 +44,7 @@ class TaskController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|min:3|max:255',
-            'status' => 'required|in:Pending,In Progress, Completed',
+            'status' => 'required|in:Pending,In Progress,Completed',
         ]);
 
         $task->update($validated);
