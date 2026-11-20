@@ -14,16 +14,6 @@
 
         <h1 class="auth-title">Reset Password</h1>
 
-        @if ($errors->any())
-        <div>
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-
         <div class="auth-form-container gap-4">
             <form method="POST" action="{{ route('password.update') }}" class="auth-form gap-4">
                 @csrf
@@ -40,7 +30,7 @@
                         type="email"
                         name="email"
                         id="email"
-                        value="{{ old('email') }}"
+                        value="{{ old('email', $email) }}"
                         required>
                 </div>
 
@@ -73,6 +63,16 @@
             <a class="underline hover:text-gray-900" href="{{ route('login') }}">
                 Back to Login
             </a>
+
+            @if ($errors->any())
+            <div class="error-messages-container">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li class="error-messages">{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
         </div>
     </div>
 
