@@ -43,6 +43,15 @@
                 placeholder="Enter task title"
                 value="{{ old('title') }}">
 
+            <label for="description">
+                Task Description
+            </label>
+
+            <textarea
+                id="description"
+                name="description"
+                placeholder="Enter task description">{{ old('description') }}</textarea>
+
             <label for="status">
                 Status
             </label>

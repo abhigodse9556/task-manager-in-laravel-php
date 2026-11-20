@@ -77,6 +77,16 @@ input[type="password"] {
     box-sizing: border-box;
 }
 
+textarea {
+    padding: 2px 8px;
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    width: 100%;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;

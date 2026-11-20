@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $tasks = Task::all();
+        $tasks = $request->user()
+            ->tasks()
+            ->latest()
+            ->get();
 
-        $user = ['id' => 101, 'name' => 'Abhishek'];
-
-        return view('tasks.index', ['tasks' => $tasks, 'user' => $user]);
+        return view('tasks.index', compact('tasks'));
     }
 
     public function create()
@@ -25,16 +26,21 @@ class TaskController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|min:3|max:255',
+            'description' => 'nullable|string',
             'status' => 'required|in:Pending,In Progress,Completed',
         ]);
 
-        Task::create($validated);
+        $request->user()->tasks()->create($validated);
 
         return redirect('/tasks');
     }
 
-    public function edit(Task $task)
+    public function edit(Request $request, Task $task)
     {
+        $task = $request->user()
+            ->tasks()
+            ->findOrFail($task->id);
+
         return view('tasks.edit', [
             'task' => $task,
         ]);
@@ -42,8 +48,13 @@ class TaskController extends Controller
 
     public function update(Request $request, Task $task)
     {
+        $task = $request->user()
+            ->tasks()
+            ->findOrFail($task->id);
+
         $validated = $request->validate([
             'title' => 'required|min:3|max:255',
+            'description' => 'nullable|string',
             'status' => 'required|in:Pending,In Progress,Completed',
         ]);
 
@@ -52,8 +63,12 @@ class TaskController extends Controller
         return redirect('/tasks');
     }
 
-    public function destroy(Task $task)
+    public function destroy(Request $request, Task $task)
     {
+        $task = $request->user()
+            ->tasks()
+            ->findOrFail($task->id);
+
         $task->delete();
 
         return redirect('/tasks');

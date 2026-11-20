@@ -43,6 +43,15 @@
                 name="title"
                 value="{{ $task->title }}">
 
+            <label for="description">
+                Task Description
+            </label>
+
+            <textarea
+                id="description"
+                name="description"
+                placeholder="Enter task description">{{ $task->description }}</textarea>
+
             <label for="status">
                 Status
             </label>
