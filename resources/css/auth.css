@@ -1,4 +1,4 @@
-.login-container {
+.auth-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,29 +7,29 @@
     margin-top: 0px;
 }
 
-.login-title {
+.auth-title {
     font-size: 2rem;
     margin-bottom: 20px;
 }
 
-.login-form-container {
+.auth-form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f9f9f9;
+    background: linear-gradient(240deg, #000, #fff);
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
-.login-form {
+.auth-form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.login-form label {
+.auth-form label {
     font-weight: bold;
 }
 
@@ -41,7 +41,7 @@
     gap: 1rem;
 }
 
-.login-register-link {
+.auth-register-link {
     margin: 1.5rem 0;
 }
 
@@ -57,11 +57,11 @@
 }
 
 @media (max-width: 600px) {
-    .login-title {
+    .auth-title {
         font-size: 1.25rem;
     }
 
-    .login-form-container {
+    .auth-form-container {
         padding: 16px;
         margin: 0 14px;
     }
@@ -72,7 +72,7 @@
         gap: 0rem;
     }
 
-    .login-form label {
+    .auth-form label {
         font-size: 0.9rem;
     }
 }

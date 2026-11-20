@@ -8,18 +8,18 @@
     <title>Register</title>
 
     @vite(['resources/css/app.css'])
-    @vite(['resources/css/login.css'])
+    @vite(['resources/css/auth.css'])
 </head>
 
 <body>
 
-    <div class="container main-container login-container">
+    <div class="container main-container auth-container">
 
-        <h1 class="login-title">Create an Account</h1>
+        <h1 class="auth-title">Create an Account</h1>
 
-        <div class="login-form-container">
+        <div class="auth-form-container">
 
-            <form method="POST" action="{{ route('register') }}" class="login-form">
+            <form method="POST" action="{{ route('register') }}" class="auth-form">
 
                 @csrf
 
@@ -76,7 +76,7 @@
 
             </form>
 
-            <p class="login-register-link">
+            <p class="auth-register-link">
                 Already have an account?
                 <a class="button" href="{{ route('login') }}">Login</a>
             </p>
