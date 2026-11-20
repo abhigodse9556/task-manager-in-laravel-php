@@ -7,11 +7,8 @@
     <div class="navbar-links">
         <a href="{{ route('home') }}">Home</a>
         <a href="{{ route('tasks.index') }}">Tasks</a>
-        @if (isset($user))
-        <x-button>{{ $user['name']}}</x-button>
-        @else
-        <x-button class="button">Sign In</x-button>
-        @endif
+        @if (auth()->check())
+        <span>{{ auth()->user()->name }}</span>
         <form method="POST" action="{{ route('logout') }}">
             @csrf
 
@@ -19,6 +16,9 @@
                 Logout
             </x-button>
         </form>
+        @else
+        <x-button class="button" onclick="window.location.href='/login'">Sign In</x-button>
+        @endif
     </div>
 
 </nav>

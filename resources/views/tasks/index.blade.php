@@ -10,12 +10,12 @@
 
     <div class="header">
 
-        @if (isset($user))
+        @if (auth()->check())
         <div class="flex gap-4">
             <h1>
                 Tasks for
             </h1>
-            <h1 class="gradient-text">{{ $user['name'] }}</h1>
+            <h1 class="gradient-text">{{ auth()->user()->name }}</h1>
         </div>
         @else
         <h1>Tasks</h1>
