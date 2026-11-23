@@ -8,7 +8,14 @@
         <a href="{{ route('home') }}">Home</a>
         <a href="{{ route('tasks.index') }}">Tasks</a>
         @if (auth()->check())
-        <span>{{ auth()->user()->name }}</span>
+        @auth
+        <x-button
+            type="button"
+            id="profile-toggle"
+            class="profile-toggle button btn-primary">
+            {{ Auth::user()->name }}
+        </x-button>
+        @endauth
         <form method="POST" action="{{ route('logout') }}">
             @csrf
 

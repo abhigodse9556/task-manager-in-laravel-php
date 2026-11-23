@@ -1,0 +1,131 @@
+body.profile-sidebar-open {
+    overflow: hidden;
+}
+
+.profile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+}
+
+.profile-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 380px;
+    max-width: 90%;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+
+    z-index: 1000;
+}
+
+.profile-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-sidebar-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.profile-close {
+    border: none;
+    background: transparent;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #6b7280;
+}
+
+.profile-close:hover {
+    color: #111827;
+}
+
+.profile-sidebar-content {
+    padding: 24px;
+}
+
+.profile-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.profile-user h3 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+}
+
+.profile-user p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.profile-section {
+    margin-top: 24px;
+}
+
+.profile-action {
+    display: block;
+    width: 100%;
+
+    padding: 12px 0;
+
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+
+    background: transparent;
+
+    text-align: left;
+    font-size: 0.95rem;
+
+    cursor: pointer;
+}
+
+.profile-action:hover {
+    color: #2563eb;
+}
+
+/* Open state */
+
+.profile-sidebar.open {
+    transform: translateX(0);
+}
+
+.profile-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
