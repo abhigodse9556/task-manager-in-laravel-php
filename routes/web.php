@@ -29,6 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])
         ->name('logout');
 
+    Route::put('/profile/name', [ProfileController::class, 'updateName'])
+        ->name('profile.name.update');
+
     Route::put('/profile/password', [ProfileController::class, 'updatePassword'])
         ->name('profile.password.update');
 });

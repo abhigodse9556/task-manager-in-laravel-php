@@ -55,7 +55,7 @@ if (backToProfileButton) {
 }
 
 const changePasswordForm = document.getElementById('change-password-form');
-const passwordSuccess = document.getElementById('password-success');
+const passwordSuccess = document.getElementById('profile-success-message');
 
 const currentPasswordError = document.getElementById('current-password-error');
 const passwordError = document.getElementById('password-error');
@@ -153,5 +153,132 @@ function showPasswordErrors(errors) {
     if (errors.password_confirmation && passwordConfirmationError) {
         passwordConfirmationError.textContent =
             errors.password_confirmation[0];
+    }
+}
+
+const nameView = document.getElementById('name-view');
+const editNameButton = document.getElementById('edit-name-button');
+const backToProfileFromName = document.getElementById('back-to-profile-from-name');
+
+const updateNameForm = document.getElementById('update-name-form');
+const nameError = document.getElementById('name-error');
+const nameSuccess = document.getElementById('profile-success-message');
+
+function openNameView() {
+    profileView.style.display = 'none';
+    passwordView.classList.remove('active');
+    nameView.classList.add('active');
+}
+
+function backToProfileFromNameView() {
+    nameView.classList.remove('active');
+    profileView.style.display = 'block';
+}
+
+if (editNameButton) {
+    editNameButton.addEventListener('click', () => {
+        openNameView();
+    });
+}
+
+if (backToProfileFromName) {
+    backToProfileFromName.addEventListener('click', () => {
+        backToProfileFromNameView();
+    });
+}
+
+if (updateNameForm) {
+    updateNameForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        clearNameMessages();
+
+        const submitButton = document.getElementById('update-name-submit');
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Updating...';
+
+        try {
+            const response = await fetch(updateNameForm.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector(
+                        'meta[name="csrf-token"]'
+                    ).getAttribute('content'),
+                },
+                body: new FormData(updateNameForm),
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                nameSuccess.textContent = data.message;
+                nameSuccess.classList.add('show');
+
+                // Update the name displayed in the profile view
+                const profileName = document.querySelector('.profile-user h3');
+
+                if (profileName) {
+                    profileName.textContent = data.name;
+                }
+
+                // Update navbar username if it exists
+                const profileToggle = document.getElementById('profile-toggle');
+
+                if (profileToggle) {
+                    profileToggle.textContent = data.name;
+                }
+
+                backToProfileFromNameView();
+
+                setTimeout(() => {
+                    nameSuccess.textContent = '';
+                    nameSuccess.classList.remove('show');
+                }, 5000);
+
+                return;
+            }
+
+            if (response.status === 422) {
+                showNameErrors(data.errors || {});
+                return;
+            }
+
+            showNameErrors({
+                name: [
+                    data.message || 'Unable to update name. Please try again.'
+                ]
+            });
+
+        } catch (error) {
+            console.error('Name update error:', error);
+
+            showNameErrors({
+                name: [
+                    'Something went wrong. Please try again.'
+                ]
+            });
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Update Name';
+        }
+    });
+}
+
+function clearNameMessages() {
+    if (nameError) {
+        nameError.textContent = '';
+    }
+
+    if (nameSuccess) {
+        nameSuccess.textContent = '';
+        nameSuccess.classList.remove('show');
+    }
+}
+
+function showNameErrors(errors) {
+    if (errors.name && nameError) {
+        nameError.textContent = errors.name[0];
     }
 }

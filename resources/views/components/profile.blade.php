@@ -15,7 +15,7 @@
     </div>
 
     <div class="profile-update-success">
-        <span id="password-success" class="profile-success-message"></span>
+        <span id="profile-success-message" class="profile-success-message"></span>
     </div>
 
     <div id="profile-view" class="profile-sidebar-content">
@@ -41,6 +41,50 @@
             </x-button>
         </div>
 
+    </div>
+
+    <div id="name-view" class="profile-form-view profile-sidebar-content relative">
+        <div class="profile-form-header">
+            <button type="button" id="back-to-profile-from-name" class="profile-back-button">
+                &larr;
+            </button>
+
+            <h3>Edit Name</h3>
+        </div>
+
+        <form
+            id="update-name-form"
+            method="POST"
+            action="{{ route('profile.name.update') }}">
+            @csrf
+            @method('PUT')
+
+            <div class="profile-form-group">
+                <label for="name">Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value="{{ Auth::user()->name }}"
+                    required>
+
+                <span
+                    id="name-error"
+                    class="profile-field-error"></span>
+            </div>
+
+            <div
+                id="name-success"
+                class="profile-success"></div>
+
+            <button
+                type="submit"
+                id="update-name-submit"
+                class="profile-submit-button">
+                Update Name
+            </button>
+        </form>
     </div>
 
     <div id="password-view" class="profile-form-view profile-sidebar-content relative">
