@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 @import './profile.css';
+@import './auth.css';
+@import './tasks.css';
+@import './welcome.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -92,7 +95,7 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 40px;
+    padding: 6px;
     background: linear-gradient(270deg, #ffffff, #222);
     border-bottom: 1px solid #ddd;
     margin: 8px;
@@ -108,6 +111,7 @@ textarea {
     font-weight: bold;
     color: #fff;
     text-decoration: none;
+    margin-left: 16px;
 }
 
 .navbar-links {

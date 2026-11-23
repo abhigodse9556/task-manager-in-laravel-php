@@ -12,17 +12,12 @@
         <x-button
             type="button"
             id="profile-toggle"
-            class="profile-toggle button btn-primary">
-            {{ Auth::user()->name }}
+            class="profile-toggle cursor-pointer">
+            <div class="profile-avatar">
+                {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+            </div>
         </x-button>
         @endauth
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-
-            <x-button type="submit">
-                Logout
-            </x-button>
-        </form>
         @else
         <x-button class="button" onclick="window.location.href='/login'">Sign In</x-button>
         @endif

@@ -5,13 +5,13 @@
     <div class="profile-sidebar-header">
         <h2>Profile</h2>
 
-        <button
+        <x-button
             type="button"
             id="profile-close"
             class="profile-close"
             aria-label="Close profile">
             &times;
-        </button>
+        </x-button>
     </div>
 
     <div class="profile-sidebar-content">
@@ -28,15 +28,24 @@
         </div>
 
         <div class="profile-section">
-            <button type="button" class="profile-action">
+            <x-button type="button" class="profile-action">
                 Edit Name
-            </button>
+            </x-button>
 
-            <button type="button" class="profile-action">
+            <x-button type="button" class="profile-action">
                 Reset Password
-            </button>
+            </x-button>
         </div>
 
     </div>
+
+
+    <form method="POST" action="{{ route('logout') }}" class="pl-4">
+        @csrf
+
+        <x-button class="button btn-danger" type="submit">
+            Logout
+        </x-button>
+    </form>
 
 </aside>
