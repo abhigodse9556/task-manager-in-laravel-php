@@ -11,19 +11,16 @@
             {{ $task->title }}
         </strong>
 
-        <div>
-            Task #{{ $task->id }}
-            -
-            {{ $task->priority }}
-            -
-            Due:
-            {{ $task->due_date_time ? $task->due_date_time->format('d-m-Y H:i') : 'N/A' }}
+        <div class="flex gap-2">
+            <x-tasks.badge :value="$task->priority" :type="'priority'" />
+
+            <x-tasks.badge :value="$task->due_date_time" :type="'due_date_time'" />
         </div>
     </div>
 
     <div class="status">
 
-        {{ $task->status }}
+        <x-tasks.badge :value="$task->status" :type="'status'" />
 
         @if ($showActions && !$bin)
 
