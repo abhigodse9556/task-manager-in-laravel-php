@@ -11,7 +11,7 @@
     <div class="header">
 
         @if (auth()->check())
-        <div class="flex gap-4">
+        <div class="flex flex-col gap-0 md:flex-row md:gap-4">
             <h1>
                 Tasks for
             </h1>

@@ -24,60 +24,66 @@
 
         @if ($showActions && !$bin)
 
-        <a
-            class="button btn-warning"
-            href="{{ route('tasks.edit', $task->id) }}">
-            Edit
-        </a>
+        <div class="card-actions">
 
-        <form
-            method="POST"
-            action="{{ route('tasks.destroy', $task->id) }}"
-            style="display: inline;">
+            <a
+                class="button btn-warning"
+                href="{{ route('tasks.edit', $task->id) }}">
+                Edit
+            </a>
 
-            @csrf
-            @method('DELETE')
+            <form
+                method="POST"
+                action="{{ route('tasks.destroy', $task->id) }}"
+                style="display: inline;">
 
-            <x-button class="button btn-danger" type="submit">
-                Delete
-            </x-button>
+                @csrf
+                @method('DELETE')
 
-        </form>
+                <x-button class="button btn-danger" type="submit">
+                    Delete
+                </x-button>
+
+            </form>
+
+        </div>
 
         @endif
 
         @if ($bin)
 
-        <form
-            method="POST"
-            action="{{ route('tasks.restore', $task->id) }}"
-            style="display: inline;">
+        <div class="card-actions">
 
-            @csrf
-            @method('PATCH')
+            <form
+                method="POST"
+                action="{{ route('tasks.restore', $task->id) }}"
+                style="display: inline;">
 
-            <x-button class="button btn-success" type="submit">
-                Restore
-            </x-button>
+                @csrf
+                @method('PATCH')
 
-        </form>
+                <x-button class="button btn-success" type="submit">
+                    Restore
+                </x-button>
 
-        <form
-            method="POST"
-            action="{{ route('tasks.forceDelete', $task->id) }}"
-            style="display: inline;">
+            </form>
 
-            @csrf
-            @method('DELETE')
+            <form
+                method="POST"
+                action="{{ route('tasks.forceDelete', $task->id) }}"
+                style="display: inline;">
 
-            <x-button class="button btn-danger" type="submit">
-                Delete Permanently
-            </x-button>
+                @csrf
+                @method('DELETE')
 
-        </form>
+                <x-button class="button btn-danger" type="submit">
+                    Delete
+                </x-button>
 
+            </form>
+
+        </div>
         @endif
-
     </div>
 
 </div>

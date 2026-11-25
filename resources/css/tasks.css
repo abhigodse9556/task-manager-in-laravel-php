@@ -2,6 +2,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0px 0.5rem;
 }
 
 
@@ -9,7 +10,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
 .header h1 {
@@ -98,5 +98,12 @@ select {
     p {
         font-size: 1.52rem;
         margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 580px) {
+    .task-card {
+        flex-direction: column;
+        gap: 0.25rem;
     }
 }
