@@ -26,13 +26,24 @@
         </a>
 
     </div>
+    <div class="task-list">
 
-    @foreach ($tasks as $task)
+        @if ($tasks->isEmpty())
+        <div class="no-tasks-container">
+            <p>No tasks available.</p>
+            <a href="{{ route('tasks.create') }}" class="button">
+                + Create Task
+            </a>
+        </div>
+        @endif
+        @foreach ($tasks as $task)
 
-    <x-tasks.task-card
-        :task="$task" />
+        <x-tasks.task-card
+            :task="$task" />
 
-    @endforeach
+        @endforeach
+
+    </div>
 
 </div>
 
