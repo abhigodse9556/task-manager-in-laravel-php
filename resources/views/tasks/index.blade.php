@@ -29,43 +29,8 @@
 
     @foreach ($tasks as $task)
 
-    <div class="task-card">
-
-        <div>
-            <strong>
-                {{ $task->title }}
-            </strong>
-
-            <div>
-                Task #{{ $task->id }}
-            </div>
-        </div>
-
-        <div class="status">
-
-            {{ $task->status }}
-
-            <a class="button btn-warning" href="{{ route('tasks.edit', $task->id) }}">
-                Edit
-            </a>
-
-            <form
-                method="POST"
-                action="{{ route('tasks.destroy', $task->id) }}"
-                style="display: inline;">
-
-                @csrf
-                @method('DELETE')
-
-                <x-button class="button btn-danger" type="submit">
-                    Delete
-                </x-button>
-
-            </form>
-
-        </div>
-
-    </div>
+    <x-tasks.task-card
+        :task="$task" />
 
     @endforeach
 

@@ -75,6 +75,39 @@
 
             </select>
 
+            <label for="due_date_time">
+                Due Date and Time
+            </label>
+
+            <input
+                type="datetime-local"
+                id="due_date_time"
+                name="due_date_time"
+                value="{{ $task->due_date_time ? $task->due_date_time->format('Y-m-d\TH:i') : '' }}">
+
+            <label for="priority">
+                Priority
+            </label>
+
+            <select id="priority" name="priority">
+
+                <option value="Low"
+                    {{ $task->priority === 'Low' ? 'selected' : '' }}>
+                    Low
+                </option>
+
+                <option value="Medium"
+                    {{ $task->priority === 'Medium' ? 'selected' : '' }}>
+                    Medium
+                </option>
+
+                <option value="High"
+                    {{ $task->priority === 'High' ? 'selected' : '' }}>
+                    High
+                </option>
+
+            </select>
+
             <button class="button" type="submit">
                 Update Task
             </button>

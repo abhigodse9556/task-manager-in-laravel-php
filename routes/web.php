@@ -24,7 +24,19 @@ Route::get('/login', [LoginController::class, 'show'])
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/tasks/bin', [TaskController::class, 'bin'])
+        ->name('tasks.bin');
+
     Route::resource('tasks', TaskController::class);
+
+    Route::patch('/tasks/{task}/restore', [TaskController::class, 'restore'])
+        ->withTrashed()
+        ->name('tasks.restore');
+
+    Route::delete('/tasks/{task}/force-delete', [TaskController::class, 'forceDelete'])
+        ->withTrashed()
+        ->name('tasks.forceDelete');
 
     Route::post('/logout', [LoginController::class, 'logout'])
         ->name('logout');

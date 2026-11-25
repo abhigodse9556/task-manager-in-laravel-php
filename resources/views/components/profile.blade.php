@@ -39,6 +39,10 @@
             <x-button type="button" class="profile-action" id="change-password-button">
                 Reset Password
             </x-button>
+
+            <x-button type="button" class="profile-action" id="delete-account-button" onclick="window.location.href='/tasks/bin'">
+                Trashed Tasks
+            </x-button>
         </div>
 
     </div>
@@ -173,7 +177,6 @@
         @endif
 
     </div>
-
 
 
     <form method="POST" action="{{ route('logout') }}" class="fixed bottom-0 right-0 p-4 border-t border-gray-200 w-full flex justify-end">

@@ -76,6 +76,40 @@
 
             </select>
 
+            <label for="due_date_time">
+                Due Date & Time
+            </label>
+
+            <input
+                type="datetime-local"
+                id="due_date_time"
+                name="due_date_time"
+                value="{{ old('due_date_time') }}">
+
+            <label for="priority">
+                Priority
+            </label>
+
+            <select id="priority" name="priority">
+
+                <option class="bg-gray-500 text-white" value="Low" disabled>
+                    Select priority
+                </option>
+
+                <option class="bg-black text-white hover:text-gray-500 hover:bg-black" value="Low">
+                    Low
+                </option>
+
+                <option class="bg-black text-white" value="Medium">
+                    Medium
+                </option>
+
+                <option class="bg-black text-white" value="High">
+                    High
+                </option>
+
+            </select>
+
             <button class="button" type="submit">
                 Create Task
             </button>

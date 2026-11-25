@@ -3,6 +3,13 @@
     display: block;
 }
 
+.bin-container {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    height: stretch;
+}
+
 
 .header {
     display: flex;
