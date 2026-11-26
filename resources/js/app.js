@@ -1,4 +1,5 @@
 import './profile';
+import './tasks'
 
 const toggleButton = document.getElementById('navbar-toggle');
 const btnBar1 = document.getElementById('bar1');

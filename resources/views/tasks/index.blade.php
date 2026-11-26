@@ -22,10 +22,16 @@
         @endif
 
         <a href="{{ route('tasks.create') }}" class="button">
-            + Create Task
+            + Create
         </a>
 
     </div>
+
+    <div id="tasks-filter-block" class="tasks-filter-block">
+        <x-tasks.filter-bar />
+    </div>
+    <span id="apply-filter-btn" class="visible text-sm text-right underline md:hidden">Apply filters</span>
+
     <div class="task-list">
 
         @if ($tasks->isEmpty())

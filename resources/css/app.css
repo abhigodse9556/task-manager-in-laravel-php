@@ -75,11 +75,55 @@ body {
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    padding: 2px 8px;
-    margin: 4px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    flex: 1;
+    min-width: 220px;
+    width: 100%;
+    height: 44px;
+    padding: 10px 14px;
+
+    font-family: inherit;
+    font-size: 16px;
+    color: #111;
+
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+input[type="text"]::placeholder {
+    color: #555;
+}
+
+input[type="text"]:focus {
+    background: #fff;
+    border-color: #222;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.12);
+}
+
+input[type="email"]::placeholder {
+    color: #555;
+}
+
+input[type="email"]:focus {
+    background: #fff;
+    border-color: #222;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.12);
+}
+
+input[type="password"]::placeholder {
+    color: #555;
+}
+
+input[type="password"]:focus {
+    background: #fff;
+    border-color: #222;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.12);
 }
 
 textarea {
@@ -90,6 +134,64 @@ textarea {
     box-sizing: border-box;
     resize: vertical;
     width: 100%;
+}
+
+/* ==============================
+   Select Fields
+   ============================== */
+
+select {
+    height: 44px;
+    min-width: 160px;
+    padding: 0 42px 0 14px;
+    margin-bottom: 0px;
+
+    font-family: inherit;
+    font-size: 16px;
+    color: #111;
+
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+
+    outline: none;
+    cursor: pointer;
+
+    /* Remove browser default arrow */
+    appearance: none;
+
+    /* Custom arrow */
+    background-image: linear-gradient(45deg,
+            transparent 50%,
+            #222 50%),
+        linear-gradient(135deg,
+            #222 50%,
+            transparent 50%);
+
+    background-position:
+        calc(100% - 19px) 18px,
+        calc(100% - 14px) 18px;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
+    background-repeat: no-repeat;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+select:hover {
+    background-color: #fff;
+}
+
+select:focus {
+    background-color: #fff;
+    border-color: #222;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.12);
 }
 
 .navbar {
@@ -176,7 +278,11 @@ textarea {
     width: fit-content;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 580px) {
+
+    .main-container {
+        margin-top: 4rem;
+    }
 
     .navbar-links {
         flex-direction: column;
@@ -228,7 +334,7 @@ textarea {
         width: 100%;
         height: 86vh;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transform: translate(8.5rem);
+        transform: translate(25rem);
         opacity: 0;
         transition: all 0.3s ease-in-out;
         overflow: hidden;
