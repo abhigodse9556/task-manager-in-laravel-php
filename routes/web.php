@@ -28,6 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/tasks/bin', [TaskController::class, 'bin'])
         ->name('tasks.bin');
 
+    Route::get('/tasks/bin/{task}', [TaskController::class, 'show'])
+        ->withTrashed()
+        ->name('tasks.bin.show');
+
     Route::resource('tasks', TaskController::class);
 
     Route::patch('/tasks/{task}/restore', [TaskController::class, 'restore'])

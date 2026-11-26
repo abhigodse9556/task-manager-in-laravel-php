@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('page-css')
-@vite(['resources/css/welcome.css'])
-@endsection
-
 @section('content')
 
 <div class="container home-container">

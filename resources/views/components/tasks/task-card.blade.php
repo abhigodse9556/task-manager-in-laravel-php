@@ -7,20 +7,24 @@
 <div class="task-card">
 
     <div>
-        <strong>
-            {{ $task->title }}
-        </strong>
+        <a
+            href="{{ $bin ? route('tasks.bin.show', $task) : route('tasks.show', $task) }}">
+            <strong>
+                {{ $task->title }}
+            </strong>
+        </a>
+
 
         <div class="flex gap-2">
             <x-tasks.badge :value="$task->priority" :type="'priority'" />
 
-            <x-tasks.badge :value="$task->due_date_time" :type="'due_date_time'" />
+            <x-tasks.badge :value="$task->due_date_time" :type="'date_time'" />
         </div>
     </div>
 
-    <div class="status">
+    <div class="status flex items-center"">
 
-        <x-tasks.badge :value="$task->status" :type="'status'" />
+        <x-tasks.badge :value=" $task->status" :type="'status'" />
 
         @if ($showActions && !$bin)
 
@@ -29,19 +33,18 @@
             <a
                 class="button btn-warning"
                 href="{{ route('tasks.edit', $task->id) }}">
-                Edit
+                <x-heroicon-o-pencil-square class="h-6 w-6" />
             </a>
 
             <form
                 method="POST"
-                action="{{ route('tasks.destroy', $task->id) }}"
-                style="display: inline;">
+                action="{{ route('tasks.destroy', $task->id) }}">
 
                 @csrf
                 @method('DELETE')
 
                 <x-button class="button btn-danger" type="submit">
-                    Delete
+                    <x-heroicon-o-trash class='h-6 w-6' />
                 </x-button>
 
             </form>
@@ -63,7 +66,7 @@
                 @method('PATCH')
 
                 <x-button class="button btn-success" type="submit">
-                    Restore
+                    <x-tabler-restore class="h-6 w-6" />
                 </x-button>
 
             </form>
@@ -77,7 +80,7 @@
                 @method('DELETE')
 
                 <x-button class="button btn-danger" type="submit">
-                    Delete
+                    <x-heroicon-o-trash class='h-6 w-6' />
                 </x-button>
 
             </form>

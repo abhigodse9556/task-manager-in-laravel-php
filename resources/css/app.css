@@ -50,25 +50,53 @@ body {
     border-radius: 8px;
     border: 0px;
     cursor: pointer;
+    text-align: center;
 }
 
 .button:hover {
-    color: #000;
     font-style: italic;
+    font-weight: 600;
+    scale: 1.052;
+    transition: all 0.2s ease-in-out;
 }
 
 .btn-primary {
+    background: linear-gradient(45deg, #ffffff, #2563eb);
+    color: black;
+}
+
+.btn-primary:hover {
     background: linear-gradient(45deg, #000000, #2563eb);
     color: white;
 }
 
 .btn-danger {
+    background: linear-gradient(45deg, #ffffff, #eb2525);
+    color: black;
+}
+
+.btn-danger:hover {
     background: linear-gradient(45deg, #000000, #eb2525);
     color: white;
 }
 
 .btn-warning {
+    background: linear-gradient(45deg, #ffffff, #ebac25);
+    color: black;
+}
+
+.btn-warning:hover {
     background: linear-gradient(45deg, #000000, #ebac25);
+    color: white;
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #ffffff, #2feb25);
+    color: black;
+}
+
+.btn-success:hover {
+    background: linear-gradient(45deg, #000000, #2feb25);
     color: white;
 }
 

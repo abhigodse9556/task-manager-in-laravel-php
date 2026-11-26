@@ -58,6 +58,11 @@
     gap: 8px;
 }
 
+.card-actions {
+    display: flex;
+    align-items: center;
+}
+
 /* create task page */
 .task-manipulation-container {
     flex-direction: column;
@@ -69,7 +74,7 @@
 
 .form-card {
     background: white;
-    padding: 30px;
+    padding: 16px 30px;
     border-radius: 8px;
     width: 100%;
 }
@@ -82,9 +87,11 @@ label {
 
 .back {
     display: inline-block;
-    margin-bottom: 20px;
     color: black;
     text-decoration: none;
+    font-size: xx-large;
+    font-weight: 900;
+    transform: translateY(-3.5px);
 }
 
 .error {
@@ -163,6 +170,237 @@ label {
 
     box-shadow:
         0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+/* ==========================================
+   Task Details Page
+   ========================================== */
+
+.task-details-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.task-details-card {
+    margin-top: 20px;
+    padding: 32px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Header */
+
+.task-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.task-details-header h1 {
+    margin: 5px 0 0;
+
+    font-size: 32px;
+}
+
+.task-details-label {
+    margin: 0;
+
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.task-details-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* Meta */
+
+.task-details-meta {
+    display: flex;
+    gap: 40px;
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+
+/* Sections */
+
+.task-detail-section {
+    padding: 28px 0;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.task-detail-section:last-child {
+    border-bottom: none;
+}
+
+.task-detail-section h2 {
+    font-size: 21px;
+}
+
+
+/* Grid */
+
+.task-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+/* Individual information */
+
+.task-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.task-detail-label {
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+.task-detail-value {
+    font-size: 16px;
+}
+
+
+/* Description */
+
+.task-description {
+    margin: 0;
+    line-height: 1.25;
+    white-space: pre-line;
+    border: 1px solid #b8b8b85a;
+    border-radius: 10px;
+    padding: 10px 0px 10px 10px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.task-empty-value {
+    margin: 0;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+
+/* Status */
+
+.task-status,
+.task-priority {
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.status-pending {
+    background: #fbbf24;
+    color: #111;
+}
+
+.status-in-progress {
+    background: #60a5fa;
+    color: #111;
+}
+
+.status-completed {
+    background: #22c55e;
+    color: #fff;
+}
+
+
+/* Priority */
+
+.priority-low {
+    background: #22c55e;
+    color: #fff;
+}
+
+.priority-medium {
+    background: #fbbf24;
+    color: #111;
+}
+
+.priority-high {
+    background: #ef4444;
+    color: #fff;
+}
+
+
+/* Delete */
+
+.delete-button {
+    background: #8b0000;
+    color: white;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .task-details-card {
+        padding: 20px;
+    }
+
+    .task-details-header {
+        flex-direction: column;
+    }
+
+    .task-details-actions {
+        width: 100%;
+    }
+
+    .task-details-actions .button,
+    .task-details-actions form {
+        flex: 1;
+    }
+
+    .task-details-actions form .button {
+        width: 100%;
+    }
+
+    .task-details-meta {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .task-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .task-details-header h1 {
+        font-size: 26px;
+    }
+
 }
 
 

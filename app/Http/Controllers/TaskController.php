@@ -78,9 +78,24 @@ class TaskController extends Controller
             'due_date_time' => 'nullable|date',
         ]);
 
+        if ($validated['status'] === 'Completed') {
+            $validated['completed_at'] = now();
+        } else {
+            $validated['completed_at'] = null;
+        }
+
         $request->user()->tasks()->create($validated);
 
         return redirect('/tasks');
+    }
+
+    public function show(Task $task)
+    {
+        $this->authorize('view', $task);
+
+        return view('tasks.show', [
+            'task' => $task,
+        ]);
     }
 
     public function edit(Task $task)
@@ -103,6 +118,12 @@ class TaskController extends Controller
             'priority' => 'required|in:Low,Medium,High',
             'due_date_time' => 'nullable|date',
         ]);
+
+        if ($validated['status'] === 'Completed') {
+            $validated['completed_at'] = $task->completed_at ?? now();
+        } else {
+            $validated['completed_at'] = null;
+        }
 
         $task->update($validated);
 

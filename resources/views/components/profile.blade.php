@@ -183,7 +183,7 @@
         @csrf
 
         <x-button class="button btn-danger" type="submit">
-            Logout
+            <x-heroicon-c-arrow-left-start-on-rectangle class="h-8 w-8" />
         </x-button>
     </form>
 

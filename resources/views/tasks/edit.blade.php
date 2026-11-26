@@ -1,20 +1,19 @@
 @extends('layouts.app')
 
-@section('page-css')
-@vite(['resources/css/tasks.css'])
-@endsection
-
 @section('content')
 
 <div class="container task-manipulation-container">
 
-    <a href="/tasks" class="back">
-        ← Back to Tasks
-    </a>
-
     <div class="form-card">
 
-        <h1>Edit Task</h1>
+        <div class="flex gap-4 items-center">
+
+            <a href="{{ route('tasks.index') }}" class="back">
+                ←
+            </a>
+
+            <h1>Edit Task</h1>
+        </div>
 
         @if ($errors->any())
         <div>
