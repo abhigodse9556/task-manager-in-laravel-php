@@ -19,7 +19,7 @@
 
 .tasks-filter-block {
     display: flex;
-    max-height: 0;
+    max-height: 0px;
     overflow: hidden;
     opacity: 0;
     transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
@@ -196,5 +196,12 @@ label {
     .task-card {
         flex-direction: column;
         gap: 0.25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .tasks-filter-block {
+        max-height: 200px;
+        opacity: 1;
     }
 }
