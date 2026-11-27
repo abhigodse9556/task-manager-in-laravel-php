@@ -45,6 +45,18 @@
     margin: 1.5rem 0;
 }
 
+.auth-guest-link {
+    margin-top: 0.5rem;
+}
+
+.auth-guest-link a {
+    text-decoration: underline;
+}
+
+.auth-guest-link a:hover {
+    color: #999;
+}
+
 .error-messages-container {
     position: absolute;
     bottom: 0px;

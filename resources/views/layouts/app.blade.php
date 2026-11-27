@@ -15,7 +15,7 @@
     </style>
 </head>
 
-<body>
+<body data-authenticated="{{ auth()->check() ? 'true' : 'false' }}">
 
     <!-- <nav>
         <div>Task Manager</div>

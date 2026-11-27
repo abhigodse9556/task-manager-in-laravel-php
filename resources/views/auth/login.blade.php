@@ -60,6 +60,13 @@
                 <a class="underline hover:text-gray-400" href="{{ route('register') }}">Register</a>
             </p>
 
+            <p class="auth-guest-link">
+                Want to continue without an account?
+                <a href="{{ route('guest.tasks') }}">
+                    Continue as Guest
+                </a>
+            </p>
+
             @if ($errors->any())
             <div class="error-messages-container">
                 <ul>
